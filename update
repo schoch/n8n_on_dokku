@@ -21,11 +21,11 @@ if [ $RELEASE = $CURRENT_RELEASE ]; then
 fi
 
 # Replace "from" line in dockerfile with the new release
-sed -i "s#ARG N8N_VERSION.*#ARG N8N_VERSION=\"${RELEASE}\"#" Dockerfile
+sed -i '' "s#ARG N8N_VERSION.*#ARG N8N_VERSION=\"${RELEASE}\"#" Dockerfile
 
 # Replace README link to n8n release
 N8N_BADGE="[![n8n](https://img.shields.io/badge/n8n-${RELEASE}-blue.svg)](https://github.com/n8n-io/n8n/releases/tag/n8n%40${RELEASE})"
-sed -i "s#\[\!\[n8n\].*#${N8N_BADGE}#" README.md
+sed -i '' "s#\[\!\[n8n\].*#${N8N_BADGE}#" README.md
 
 # Push changes
 git add Dockerfile README.md
